@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
 import { fetchAnime } from './action';
+import LoadMore from '@/components/LoadMore';
 
 async function Home() {
   const data = await fetchAnime(1);
@@ -16,6 +17,7 @@ async function Home() {
           <AnimeCard key={item.id} anime={item} index={index} />
         ))}
      </section>
+     <LoadMore />
     </main>
   )
 }
