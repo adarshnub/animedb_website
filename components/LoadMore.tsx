@@ -8,6 +8,8 @@ import AnimeCard, { AnimeProp } from "./AnimeCard";
 
 let page = 2;
 
+// export type AnimeCard = JSX.Element;
+
 function LoadMore() {
   const {ref, inView} = useInView();
   const [data,setData] = useState<AnimeProp[]>([]);
