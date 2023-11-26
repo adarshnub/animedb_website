@@ -6,15 +6,18 @@ import { useEffect, useState } from "react";
 import { fetchAnime } from "@/app/action";
 import AnimeCard, { AnimeProp } from "./AnimeCard";
 
+let page = 2;
+
 function LoadMore() {
   const {ref, inView} = useInView();
   const [data,setData] = useState<AnimeProp[]>([]);
 
   useEffect(() => {
     if(inView){
-      fetchAnime(2)
+      fetchAnime(page)
         .then((res) => {
           setData([ ...data, ...res]);
+          page++;
         })
     }
     
